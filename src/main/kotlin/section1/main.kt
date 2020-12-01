@@ -2,7 +2,7 @@ package section1
 
 fun main() {
 
-    val bookShelf = BookShelf(4)
+    val bookShelf = BookShelf()
     bookShelf.appendBook(Book("A"))
     bookShelf.appendBook(Book("B"))
     bookShelf.appendBook(Book("C"))
