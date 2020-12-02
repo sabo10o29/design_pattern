@@ -1,0 +1,5 @@
+#written by FileProperties
+#Thu Dec 03 00:10:16 JST 2020
+day=20
+year=2000
+month=11
