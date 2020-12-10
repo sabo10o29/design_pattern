@@ -4,7 +4,7 @@ import java.io.FileWriter
 import java.io.IOException
 import java.util.*
 
-abstract class Page(val title: String, val author: String) {
+abstract class Page(val title: String, protected val author: String) {
 
     protected val content = Vector<Item>()
 
