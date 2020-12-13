@@ -11,11 +11,11 @@ class ListFactory: Factory() {
     }
 
     override fun createTray(caption: String): Tray {
-        TODO("Not yet implemented")
+        return ListTray(caption)
     }
 
     override fun createPage(title: String, author: String): Page {
-        TODO("Not yet implemented")
+        return ListPage(title, author)
     }
 
 

@@ -4,7 +4,7 @@ import section8.factory.Factory
 
 
 fun main(){
-    val className = ""
+    val className = "section8.listfactory.ListFactory"
     val factory = Factory.getFactory(className)
 
     val asahi = factory.createLink("Asahi", "http://www.asahi.com")
