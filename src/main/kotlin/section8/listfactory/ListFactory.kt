@@ -18,5 +18,12 @@ class ListFactory: Factory() {
         return ListPage(title, author)
     }
 
+    override fun createYahooPage(): Page {
+        val linkyahoo = createLink("Yahoo!", "http://www.yahoo.com")
+        val page = createPage("LinkPage", "Murase")
+        page.add(linkyahoo)
+        return page
+    }
+
 
 }

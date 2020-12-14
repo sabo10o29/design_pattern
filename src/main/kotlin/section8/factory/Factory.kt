@@ -24,6 +24,7 @@ abstract class Factory {
     abstract fun createLink(caption : String, url: String): Link
     abstract fun createTray(caption: String): Tray
     abstract fun createPage(title: String, author: String): Page
+    abstract fun createYahooPage(): Page
 
 
 }
