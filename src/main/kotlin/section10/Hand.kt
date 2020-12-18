@@ -1,6 +1,6 @@
 package section10
 
-enum class Hand(private val hand_val: Int, private val disp: String) {
+enum class Hand(val hand_val: Int, private val disp: String) {
 
     ROCK(0, "GUU"),
     SCISSORS(1, "CHO"),
