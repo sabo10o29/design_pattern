@@ -14,7 +14,7 @@ class Directory(private val name: String): Entry() {
         return size
     }
 
-    override fun add(entry: Entry): Entry{
+    override fun addImplement(entry: Entry): Entry{
         list.add(entry)
         return this
     }

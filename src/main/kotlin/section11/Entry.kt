@@ -1,19 +1,44 @@
 package section11
 
 abstract class Entry {
+
+    private var parent: Entry? = null
+
     abstract fun getName(): String
     abstract fun getSize(): Int
-    public open fun add(entry: Entry): Entry{
+    abstract fun printList(prefix: String)
+
+    final fun add(entry: Entry): Entry{
+        entry.setParent(this)
+        return addImplement(entry)
+    }
+
+    public open fun addImplement(entry: Entry): Entry{
         throw FileTreatmentException()
     }
-    public fun printList(){
-        println("")
+
+    private fun setParent(entry: Entry){
+        parent = entry
     }
-    abstract fun printList(prefix: String)
+
+    public fun printList(){
+        printList("")
+    }
+
+    private fun getParentPath(): String{
+        if(parent == null){
+            return "/${getName()}"
+        }else{
+            return "${parent!!.getParentPath()}/${getName()}"
+        }
+    }
+
+    public fun printFullPath(){
+        println(getParentPath())
+    }
+
     override fun toString(): String {
         return "${getName()} (${getSize()})"
     }
-
-
 
 }
