@@ -3,23 +3,25 @@ package section12
 fun main(){
 
     val b1 = StringDisplay("Hello, world.")
-    val b2 = SideBorder(b1, '#')
-    val b3 = FullBorder(b2)
+    val b2 = UpDownBorder(b1, '-')
+    val b3 = SideBorder(b2, '*')
     b1.show()
     b2.show()
     b3.show()
-    val b4 = SideBorder(
-                FullBorder(
-                        FullBorder(
+    val b4 = FullBorder(
+                        UpDownBorder(
                                 SideBorder(
-                                        FullBorder(
-                                                StringDisplay("Good morning!!!")
+                                        UpDownBorder(
+                                                SideBorder(
+                                                        StringDisplay("Good morning!!!"),
+                                                        '*'
+                                                ),
+                                                '='
                                         ),
-                                        '#'
-                                )
+                                        '|'
+                                ),
+                                '/'
                         )
-                ),
-            '/'
-    )
+                )
     b4.show()
 }
