@@ -24,4 +24,17 @@ fun main(){
                         )
                 )
     b4.show()
+
+    val md = MultiStringDisplay()
+    md.add("Good morning")
+    md.add("Good afternoon")
+    md.add("Good night. See you tomorrow")
+    md.show()
+
+    val d1 = SideBorder(md, '#')
+    d1.show()
+
+    val d2 = FullBorder(md)
+    d2.show()
+
 }
