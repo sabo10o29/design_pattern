@@ -1,5 +1,7 @@
 package section11
 
+import section13.Visitor
+
 class File(private val name: String, private val size: Int): Entry() {
 
     override fun getName(): String {
@@ -13,4 +15,10 @@ class File(private val name: String, private val size: Int): Entry() {
     override fun printList(prefix: String) {
         println("$prefix/$this")
     }
+
+    override fun accept(visitor: Visitor) {
+        visitor.visit(this)
+    }
+
+
 }

@@ -1,6 +1,8 @@
 package section11
 
-abstract class Entry {
+import section13.Acceptor
+
+abstract class Entry : Acceptor{
 
     private var parent: Entry? = null
 

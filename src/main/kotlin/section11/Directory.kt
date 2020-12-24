@@ -1,5 +1,7 @@
 package section11
 
+import section13.Visitor
+
 class Directory(private val name: String): Entry() {
 
     private val list = mutableListOf<Entry>()
@@ -19,9 +21,17 @@ class Directory(private val name: String): Entry() {
         return this
     }
 
+    override fun accept(visitor: Visitor) {
+        visitor.visit(this)
+    }
+
     override fun printList(prefix: String) {
         println("$prefix/$this")
         list.forEach { entry -> entry.printList("$prefix/$name") }
+    }
+
+    fun iterator(): MutableIterator<Entry>{
+        return list.iterator()
     }
 
 
