@@ -31,10 +31,17 @@ fun main(){
     yuki.add(File("diary.html", 100))
     yuki.add(File("Composite.java", 200))
     hanako.add(File("memo.tex", 300))
+    hanako.add(File("index.html", 300))
     tomura.add(File("game.doc", 400))
     tomura.add(File("junk.mail", 500))
-
     rootdir.accept(ListVisitor())
+
+    println()
+
+    val ffv = FileFindVisitor(".html")
+    rootdir.accept(ffv)
+    println("Html files are")
+    ffv.getFoundFiles().forEach { it -> println(it.getName()) }
 
 
 }
