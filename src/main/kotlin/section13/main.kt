@@ -43,5 +43,9 @@ fun main(){
     println("Html files are")
     ffv.getFoundFiles().forEach { it -> println(it.getName()) }
 
+    val sv = SizeVisitor()
+    rootdir.accept(sv)
+    sv.printSize()
+
 
 }
