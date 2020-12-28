@@ -22,6 +22,22 @@ class PageMaker private constructor(){
             }
         }
 
+        fun makeLinkPage(filename: String){
+            try{
+                val mailprop = Database.getProperties("./src/main/kotlin/section15/maildata")
+                val writer = HtmlWriter(FileWriter(filename))
+                writer.title("Link page!")
+                mailprop.keys.forEach{ key ->
+                    val value = mailprop[key!!]
+                    writer.mailto(key!!.toString(), value!!.toString())
+                }
+                writer.close()
+                println("$filename is created.")
+            }catch (e: IOException){
+                e.printStackTrace()
+            }
+        }
+
     }
 
 
