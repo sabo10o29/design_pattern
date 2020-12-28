@@ -1,0 +1,4 @@
+tanaka@sabo10.com=Tanaka Taro
+yamada@sabo10.com=Yamada Taro
+suzuki@sabo10.com=Suzuki Taro
+satou@sabo10.com=Satou Taro
