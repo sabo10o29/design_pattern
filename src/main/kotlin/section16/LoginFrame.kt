@@ -4,7 +4,8 @@ import java.awt.*
 import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 
-class LoginFrame(private val title_val: String): Frame(title_val), ActionListener, Mediator {
+class LoginFrame(private val title_val: String)
+    : Frame(title_val), ActionListener, Mediator {
 
     private var checkGuest: ColleagueCheckbox? = null
     private var checkLogin: ColleagueCheckbox? = null
@@ -37,7 +38,8 @@ class LoginFrame(private val title_val: String): Frame(title_val), ActionListene
 
 
     override fun actionPerformed(e: ActionEvent?) {
-        TODO("Not yet implemented")
+        println(e)
+        System.exit(0)
     }
 
     override fun createColleagues() {
@@ -72,7 +74,25 @@ class LoginFrame(private val title_val: String): Frame(title_val), ActionListene
             buttonOK!!.setColleagueEnabled(true)
         }else{
             textUser!!.setColleagueEnabled(true)
-
+            userpassChanged()
         }
     }
+
+    private fun  userpassChanged(){
+        val nameLength = textUser!!.text.length
+        val passLength = textPass!!.text.length
+
+        if(nameLength > 3){
+            textPass!!.setColleagueEnabled(true)
+            if(passLength>3){
+                buttonOK!!.setColleagueEnabled(true)
+            }else{
+                buttonOK!!.setColleagueEnabled(false)
+            }
+        }else{
+            textPass!!.setColleagueEnabled(false)
+            buttonOK!!.setColleagueEnabled(false)
+        }
+    }
+
 }
