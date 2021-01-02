@@ -1,6 +1,9 @@
 package section18.game
 
-class Memento(private val money: Int) {
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class Memento(private val money: Int) {
 
     private val fruits = mutableListOf<Fruits>()
 
@@ -14,6 +17,10 @@ class Memento(private val money: Int) {
 
     fun getFruits(): MutableList<Fruits>{
         return fruits
+    }
+
+    override fun toString(): String {
+        return "money: $money, fruits: $fruits"
     }
 
 }

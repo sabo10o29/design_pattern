@@ -1,11 +1,28 @@
 package section18.game
 
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.io.File
 import kotlin.random.Random
 
-class Gamer(private var money: Int) {
+class Gamer(private val saveFilePath: String) {
 
+    private var money = 100
     private var fruits = mutableListOf<Fruits>()
     private val random = Random(money)
+
+    init {
+        try{
+            val st = File(saveFilePath).readText()
+            var memento = Json.decodeFromString<Memento>(st)
+            restoreMemento(memento)
+        }catch (e: Exception){
+            println("Failed to load save data.")
+        }
+    }
+
+
 
     public fun getMoney(): Int{
         return money
@@ -30,6 +47,11 @@ class Gamer(private var money: Int) {
                 println("Nothing to do")
             }
         }
+    }
+
+    public fun saveData(){
+        val st = Json.encodeToString<Memento>(createMemento())
+        File(saveFilePath).writeText(st)
     }
 
     public fun createMemento(): Memento{
