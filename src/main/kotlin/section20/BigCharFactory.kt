@@ -29,5 +29,9 @@ class BigCharFactory {
         }
     }
 
+    public fun getBigChar(charName: Char, shared: Boolean): BigChar{
+        return if(shared) getBigChar(charName) else BigChar(BASE, charName)
+    }
+
 
 }
